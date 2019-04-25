@@ -71,8 +71,8 @@ def handle_message(event):
 
     text = event.message.text
 
-    if text == 'feelsgoodman':
-            url = 'http://www.stickpng.com/img/memes/pepe-the-frog/happy-pepe-feelsgoodman'
+    if text == 'feelsbadman':
+            url = 'https://mmorpg.net/wp-content/uploads/2018/11/feelsbadman-300x273.png'
             app.logger.info("url=" + url)
             print("url=" + url)
             line_bot_api.reply_message(
