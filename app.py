@@ -85,7 +85,7 @@ def handle_message(event):
             MessageAction(label='No', text='No!'),
         ])
         template_message = TemplateSendMessage(
-            alt_text='Confirm alt text', template=confirm_template)
+            alt_text='Confirm alt text', template=ConfirmTemplate)
         line_bot_api.reply_message(event.reply_token, template_message)
 
 
