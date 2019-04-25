@@ -75,6 +75,7 @@ def handle_message(event):
                 ]
             )
         else:
+            profile = line_bot_api.get_profile(event.source.user_id)
             line_bot_api.reply_message(
                 event.reply_token,[
                 TextSendMessage(text="Bot can't use profile API without user ID"),
