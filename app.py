@@ -71,10 +71,10 @@ def handle_message(event):
 
     text = event.message.text
 
-    if text == 'image':
-            url = request.url_root + '/static/logo.png'
+    if text == 'feelsgoodman':
+            url = 'http://www.stickpng.com/img/memes/pepe-the-frog/happy-pepe-feelsgoodman'
             app.logger.info("url=" + url)
-            print("url" + url)
+            print("url=" + url)
             line_bot_api.reply_message(
                 event.reply_token,
                 ImageSendMessage(url, url)
