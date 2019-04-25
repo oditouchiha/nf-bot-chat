@@ -72,13 +72,21 @@ def handle_message(event):
     text = event.message.text
 
     if text == 'feelsbadman':
-            url = 'https://mmorpg.net/wp-content/uploads/2018/11/feelsbadman-300x273.png'
-            app.logger.info("url=" + url)
-            print("url=" + url)
-            line_bot_api.reply_message(
-                event.reply_token,
-                ImageSendMessage(url, url)
-            )
+        url = 'https://mmorpg.net/wp-content/uploads/2018/11/feelsbadman-300x273.png'
+        app.logger.info("url=" + url)
+        print("url=" + url)
+        line_bot_api.reply_message(
+            event.reply_token,
+            ImageSendMessage(url, url)
+        )
+    elif text == 'confirm':
+        confirm_template = ConfirmTemplate(text='Do it?', actions=[
+            MessageAction(label='Yes', text='Yes!'),
+            MessageAction(label='No', text='No!'),
+        ])
+        template_message = TemplateSendMessage(
+            alt_text='Confirm alt text', template=confirm_template)
+        line_bot_api.reply_message(event.reply_token, template_message)
 
 
 if __name__ == "__main__":
