@@ -74,6 +74,7 @@ def handle_message(event):
     if text == 'image':
             url = request.url_root + '/static/logo.png'
             app.logger.info("url=" + url)
+            print("url" + url)
             line_bot_api.reply_message(
                 event.reply_token,
                 ImageSendMessage(url, url)
