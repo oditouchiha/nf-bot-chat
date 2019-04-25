@@ -76,8 +76,12 @@ def handle_message(event):
             )
         else:
             line_bot_api.reply_message(
-                event.reply_token,
-                TextSendMessage(text="Bot can't use profile API without user ID"))
+                event.reply_token,[
+                TextSendMessage(text="Bot can't use profile API without user ID")
+                TextSendMessage(text='Display name: ' + profile.display_name),
+                TextSendMessage(text='Status message: ' + profile.status_message)
+                ]
+            )
 
 
 if __name__ == "__main__":
