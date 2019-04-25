@@ -65,23 +65,12 @@ def handle_message(event):
 
     text = event.message.text
 
-    if text == 'profile':
-        if isinstance(event.source, SourceUser):
-            profile = line_bot_api.get_profile(event.source.user_id)
+    if text == 'image':
+            url = request.url_root + '/static/logo.png'
+            app.logger.info("url=" + url)
             line_bot_api.reply_message(
-                event.reply_token, [
-                    TextSendMessage(text='Display name: ' + profile.display_name),
-                    TextSendMessage(text='Status message: ' + profile.status_message)
-                ]
-            )
-        else:
-            profile = line_bot_api.get_profile(event.source.user_id)
-            line_bot_api.reply_message(
-                event.reply_token,[
-                TextSendMessage(text="Bot can't use profile API without user ID"),
-                TextSendMessage(text='Display name: ' + profile.display_name),
-                TextSendMessage(text='Status message: ' + profile.status_message)
-                ]
+                event.reply_token,
+                ImageSendMessage(url, url)
             )
 
 
